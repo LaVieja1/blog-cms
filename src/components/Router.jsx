@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "../pages/Login";
 import Posts from "../pages/Posts";
+import Edit from "../pages/Edit";
 import ErrorPage from "../pages/ErrorPage";
 
 const Router = (props) => {
@@ -29,6 +30,17 @@ const Router = (props) => {
             path: "/login",
             element: <Login
                 setToken={setToken}
+            />,
+            errorElement: <ErrorPage />,
+        },
+
+        {
+            path: '/post/:id',
+            element: <Edit
+                messages={messages}
+                setMessages={setMessages}
+                comments={comments}
+                setComments={setComments}
             />,
             errorElement: <ErrorPage />,
         },
